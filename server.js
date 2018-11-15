@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require("path");
 const app = express();
 const status = ["down", "up", "degraded"];
 
@@ -7,6 +8,10 @@ const ranGen = () => {
 }
 
 app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, "./index.html"));
+});
+
+app.get('/data', (req, res) => {
   res.json({
     "system1": status[ranGen()],
     "system2": status[ranGen()],
