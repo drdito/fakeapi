@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require("path");
+const PORT = process.env.PORT || 3000;
 const app = express();
 const status = ["down", "up", "degraded"];
 
@@ -22,6 +23,6 @@ app.get('/data', (req, res) => {
   })
 })
 
-app.listen(3000, () => {
-  console.log("Listening");
+app.listen(PORT, ()=> {
+  console.log("Server is listening on port" + PORT);
 });
