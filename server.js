@@ -4,6 +4,12 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 const status = ["down", "up", "degraded"];
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 const ranGen = () => {
   return Math.floor((Math.random() * 3));
 }
