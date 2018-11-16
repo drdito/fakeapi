@@ -19,14 +19,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/data', (req, res) => {
-  res.json({
-    "system1": status[ranGen()],
-    "system2": status[ranGen()],
-    "system3": status[ranGen()],
-    "system4": status[ranGen()],
-    "system5": status[ranGen()],
-    "system6": status[ranGen()],
-  })
+  res.json([
+    {"system1": status[ranGen()]},
+    {"system2": status[ranGen()]},
+    {"system3": status[ranGen()]},
+    {"system4": status[ranGen()]},
+    {"system5": status[ranGen()]},
+    {"system6": status[ranGen()]}
+  ])
 })
 
 app.listen(PORT, ()=> {
